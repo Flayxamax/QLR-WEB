@@ -1,0 +1,73 @@
+---
+import mailIcon from "../assets/icons/email.astro";
+import phoneIcon from "../assets/icons/phone.astro";
+import locationIcon from "../assets/icons/location.astro";
+import calendarIcon from "../assets/icons/calendar.astro";
+
+const contactInfo = [
+  {
+    icon: mailIcon,
+    title: "Correo electrónico",
+    description: "quimicalaran@gmail.com",
+    href: "mailto:quimicalaran@gmail.com",
+  },
+  {
+    icon: phoneIcon,
+    title: "Teléfono / WhatsApp",
+    description: "+52 (644) 103 0196",
+    href: "https://wa.me/526441030196",
+  },
+  {
+    icon: locationIcon,
+    title: "Ubicación",
+    description: "Calle 1 #123, Col. Centro, Hermosillo, Sonora, México",
+  },
+  {
+    icon: calendarIcon,
+    title: "Disponibilidad",
+    description: "Disponibilidad alta de Lunes a Domingo",
+  },
+];
+---
+
+<div
+  id="contact"
+  class="min-h-screen bg-gradient-to-b bg-white text-white p-4 flex flex-col items-center pb-8"
+>
+  <div class="w-full max-w-6xl mt-8">
+    <h1
+      class="text-5xl font-bold text-center bg-sky-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,265,198,0.8),rgba(255,255,255,0))] text-transparent bg-clip-text mb-4"
+    >
+      Contáctanos
+    </h1>
+    <p class="text-center text-gray-500 text-2xl mb-12">
+      Ponte en contacto con nosotros por el medio que prefieras.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-8 w-full justify-center">
+      <div
+        class="bg-sky-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,265,198,0.8),rgba(255,255,255,0))] p-12 rounded-3xl shadow-xl w-full md:w-2/3 lg:w-1/2"
+      >
+        <h2 class="text-3xl font-bold mb-10 text-center">
+          Información de contacto
+        </h2>
+
+        <div class="space-y-10">
+          {
+            contactInfo.map((info) => (
+              <a href={info.href} class="flex items-center gap-6 group">
+                <div class="bg-[#ff5757] p-6 rounded-xl transform transition-transform duration-300 group-hover:translate-y-2">
+                  <info.icon />
+                </div>
+                <div>
+                  <p class="text-gray-300">{info.title}</p>
+                  <p>{info.description}</p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

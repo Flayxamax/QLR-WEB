@@ -1,0 +1,90 @@
+---
+import BardaLogo from "../assets/icons/barda-logo.webp";
+import PandoLogo from "../assets/icons/pando-logo.webp";
+import CfeLogo from "../assets/icons/cfe-logo.svg";
+import CargillLogo from "../assets/icons/cargill-logo.webp";
+
+const clientInfo = [
+  {
+    logo: BardaLogo,
+    title: "Industrias Barda",
+  },
+  {
+    logo: PandoLogo,
+    title: "Grupo Pando",
+  },
+  {
+    logo: CfeLogo,
+    title: "Comisión Federal de Electricidad",
+  },
+  {
+    logo: CargillLogo,
+    title: "Grupo Cargill",
+  },
+];
+---
+
+<section class="py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-16">
+      <span class="text-2xl text-gray-500 font-medium text-center block mb-2">
+        CLIENTES
+      </span>
+      <h2 class="text-4xl text-center font-bold text-gray-900">
+        Nuestros principales clientes
+      </h2>
+    </div>
+    <div class="swiper mySwiper px-6 lg:px-8">
+      <div class="swiper-wrapper">
+        {
+          clientInfo.map((client) => (
+            <div class="swiper-slide p-4 md:p-7 bg-gray-100 rounded-4xl flex flex-col items-center justify-center h-64">
+              <img
+                src={client.logo.src}
+                alt={client.title}
+                class="py-3 lg:py-5 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain mx-auto"
+              />
+              <h3 class="text-center text-2xl font-bold text-gray-800 mt-4">
+                {client.title}
+              </h3>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 32,
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 32,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 32,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 32,
+      },
+    },
+  });
+</script>

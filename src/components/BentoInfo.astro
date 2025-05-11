@@ -1,0 +1,126 @@
+---
+import image1 from "../assets/bento1.webp";
+import image2 from "../assets/bento2.webp";
+import image4 from "../assets/bento4.webp";
+
+const servicesTitle = {
+  title1: "Productos Químicos y Soluciones de Limpieza",
+  title2: "Sistemas de Filtración y Lubricación",
+  title3: "Equipos e Instrumentación para Laboratorio y Proceso",
+  title4: "Servicios Industriales y Asesoría Técnica",
+};
+---
+
+<section id="services" class="bg-white">
+  <div class="py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
+    <div class="mt-11 mb-12 px-6 lg:px-8">
+      <p
+        class="mt-2 text-4xl font-light tracking-tight text-gray-900 sm:text-5xl text-center"
+      >
+        Servicios
+      </p>
+      <hr
+        class="w-8/12 h-1 mx-auto my-8 bg-gray-300 border-0 rounded-sm md:my-8"
+      />
+      <p
+        class="text-2xl md:text-2xl font-light leading-8 md:leading-10 text-center text-gray-600"
+      >
+        En <span class="text-[#ff5757] font-bold">Química LA-RAN</span> somos un
+        intermediario al comercio al por menor, distribuidores y comercializadores
+        de una amplia gama de productos y servicios entre los que le podemos mencionar
+        los siguientes:
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full px-6 lg:px-8"
+    >
+      <div
+        class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col"
+      >
+        <a
+          href=""
+          class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow"
+        >
+          <img
+            src={image1.src}
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"
+          >
+          </div>
+          <h3
+            class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
+          >
+            {servicesTitle.title1}
+          </h3>
+        </a>
+      </div>
+      <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
+        <a
+          href=""
+          class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4"
+        >
+          <img
+            src={image2.src}
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"
+          >
+          </div>
+          <h3
+            class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
+          >
+            {servicesTitle.title2}
+          </h3>
+        </a>
+        <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
+          <a
+            href=""
+            class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40"
+          >
+            <img
+              src='alt=""'
+              class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"
+            >
+            </div>
+            <h3
+              class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
+            >
+              {servicesTitle.title3}
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div
+        class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col"
+      >
+        <a
+          href=""
+          class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow"
+        >
+          <img
+            src={image4.src}
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"
+          >
+          </div>
+          <h3
+            class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
+          >
+            {servicesTitle.title4}
+          </h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

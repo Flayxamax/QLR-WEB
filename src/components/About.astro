@@ -1,0 +1,81 @@
+---
+import image from "../assets/about-image.webp";
+import MissionIcon from "../assets/icons/mission.astro";
+import VisionIcon from "../assets/icons/vision.astro";
+import ValuesIcon from "../assets/icons/values.astro";
+
+const info = {
+  title: "Acerca de nosotros",
+  description:
+    "Altamente capacitados, enfocados a brindarle valor a las operaciones de su negocio.",
+};
+
+const aboutInfo = [
+  {
+    title: "Misión",
+    description:
+      "Ofrecer día a día un servicio de calidad, rápido y eficaz, para lograr fundamental y categóricamente la satisfacción y permanencia del cliente.",
+    svg: MissionIcon,
+  },
+  {
+    title: "Visión",
+    description:
+      "Lograr desarrollo, crecimiento, expansión y competitividad a nivel nacional e internacional, con base a un trabajo honesto y en equipo.",
+    svg: VisionIcon,
+  },
+  {
+    title: "Valores",
+    description:
+      "Exceder el valor para clientes y proveedores, actuar con integridad, valorar a nuestro personal y el trabajo en equipo para alcanzar la excelenca, fomentar la innovación y proteger el medio ambiente.",
+    svg: ValuesIcon,
+  },
+];
+---
+
+<section
+  id="about"
+  class="overflow-hidden bg-gray-100 py-8 sm:py-10 bg-[linear-gradient(to_right,#8080800a_2px,transparent_1px),linear-gradient(to_bottom,#8080800a_2px,transparent_1px)] bg-[size:14px_24px]"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-2 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="lg:pr-8 lg:pt-4 px-6 lg:px-8">
+        <div class="lg:max-w-lg">
+          <p
+            class="mt-2 text-4xl font-light tracking-tight text-gray-800 sm:text-5xl text-center"
+          >
+            {info.title}
+          </p>
+          <hr
+            class="w-full h-1 mx-auto my-8 bg-gray-300 border-0 rounded-sm md:my-8"
+          />
+          <p class="mt-6 text-2xl font-light leading-8 text-gray-700">
+            {info.description}
+          </p>
+          <dl
+            class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-700 lg:max-w-none"
+          >
+            {
+              aboutInfo.map((item) => (
+                <div class="relative pl-9 text-xl font-light text-gray-800 text-pretty">
+                  <dt class="inline font-semibold text-gray-900">
+                    <item.svg />
+                    {item.title}:
+                  </dt>
+                  <dd class="inline">{item.description}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </div><img
+        src={image.src}
+        alt="About image"
+        class="w-[24rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-300 sm:w-[30rem] md:-ml-4 lg:-ml-0"
+        width="1216"
+        height="721"
+      />
+    </div>
+  </div>
+</section>
