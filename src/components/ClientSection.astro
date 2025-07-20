@@ -60,14 +60,14 @@ const clientInfo = [
   import Swiper from "swiper";
   import "swiper/css";
 
+  import { Pagination, Autoplay } from "swiper/modules";
+  Swiper.use([Autoplay]);
+
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 32,
     centeredSlides: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    loop: true,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,

@@ -1,0 +1,141 @@
+---
+import { getCollection, render } from "astro:content";
+import "@styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import ContainerQ from "src/assets/icons/container-q.astro";
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+  return products.map((product) => ({
+    params: { id: product.slug },
+    props: { product },
+  }));
+}
+const { product } = Astro.props;
+const { data } = product;
+const { title, category, subtitle, image, size, features } = data;
+const { Content } = await render(product);
+
+const sizes = ["20L", "50L", "60L"];
+
+const accordeonContent = [
+  {
+    title: "Características",
+    key: "features",
+  },
+  {
+    title: "Tamaños",
+    key: "size",
+  },
+];
+---
+
+<Layout title=`Química LA-RAN | ${title}`>
+  <nav class="mb-4 flex px-4 lg:ml-90">
+    <a
+      href="/products"
+      class="text-lg text-[#ff5757] font-semibold hover:underline flex items-center gap-2"
+    >
+      &lt; Productos
+    </a>
+  </nav>
+  <div
+    class="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto mt-10 px-4"
+  >
+    <aside class="flex-col justify-center lg:items-start mb-6 lg:mb-0">
+      <img
+        class="rounded w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-96 h-auto object-cover"
+        src={image || "https://dummyimage.com/720x400"}
+        alt={title}
+      />
+      <h2
+        class="text-lg text-gray-600 text-center lg:text-center mt-10 font-extralight"
+      >
+        Contáctanos para solicitar cualquier información o duda sobre este
+        producto.
+      </h2>
+    </aside>
+    <main class="w-full max-w-3xl">
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2 text-[#ff5757]">
+        {title}
+      </h1>
+      <h2 class="text-lg sm:text-xl text-gray-800 font-bold mb-2">
+        {subtitle}
+      </h2>
+      <h2 class="text-lg sm:text-xl text-gray-600 mb-2">{category}</h2>
+      <div class="prose">
+        <p><Content /></p>
+      </div>
+      <div class="max-w-screen-md mx-auto">
+        <div id="accordion-flush" data-accordion="open">
+          {
+            accordeonContent.map((section, index) => {
+              const bodyId = `accordion-flush-body-${index}`;
+              const headingId = `accordion-flush-heading-${index}`;
+
+              return (
+                <div>
+                  <h3 id={headingId}>
+                    <button
+                      type="button"
+                      class="flex items-center justify-between w-full py-5 px-4 font-medium text-left border-b border-gray-200 bg-white text-gray-900"
+                      data-accordion-target={`#${bodyId}`}
+                      aria-expanded="true"
+                      aria-controls={bodyId}
+                    >
+                      <span class="font-bold">{section.title}</span>
+                      <svg
+                        data-accordion-icon
+                        class="w-6 h-6 shrink-0 rotate-180"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </h3>
+
+                  <div id={bodyId} aria-labelledby={headingId}>
+                    <div class="py-5 border-b border-gray-200">
+                      {section.key === "features" && (
+                        <ul class="list-disc pl-5 text-gray-500">
+                          {Array.isArray(features) ? (
+                            features.map((f) => <li>{f}</li>)
+                          ) : (
+                            <li>{features}</li>
+                          )}
+                        </ul>
+                      )}
+
+                      {section.key === "size" && (
+                        <div class="flex flex-wrap gap-8 justify-start">
+                          {Array.isArray(size)
+                            ? size.map((s) =>
+                                sizes.includes(s) ? (
+                                  <div class="p-2 text-center bg-white border-2 border-gray-300 rounded-xl shadow-lg w-30 flex flex-col items-center">
+                                    <ContainerQ />
+                                    <p class="text-xl font-bold text-gray-900">
+                                      {s}
+                                    </p>
+                                  </div>
+                                ) : null
+                              )
+                            : null}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</Layout>
