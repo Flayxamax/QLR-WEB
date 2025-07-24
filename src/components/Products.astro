@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 const products = await getCollection("products");
+import ProductPlaceHolder from "src/assets/icons/ProductPH.webp";
 
 const categories = [
   "Tratamiento Químico Calderas",
@@ -53,7 +54,7 @@ const categories = [
 
                           <img
                             class="h-48 w-full object-cover object-center relative z-10"
-                            src={image || "https://dummyimage.com/720x400"}
+                            src={image || ProductPlaceHolder.src}
                             alt={title}
                           />
                           <div class="p-6 relative z-10">

@@ -1,0 +1,88 @@
+---
+import image from "../assets/bento5.webp";
+import BackgroundVideo from "../assets/videos/awa.webm";
+
+const content = {
+  title: "Purificadoras de Agua para Hogares",
+  description:
+    "Disfruta de agua pura y segura en tu hogar con sistemas de purificación de última generación. Instalación profesional, mantenimiento y asesoría personalizada.",
+  subtitle1: "¿Por qué elegirnos?",
+  subtitle2: "Beneficios",
+};
+
+const listItems = [
+  "Equipos certificados y de alta eficiencia",
+  "Instalación rápida y sin complicaciones",
+  "Soporte técnico y mantenimiento continuo",
+  "Soluciones adaptadas a las necesidades de tu familia y hogar",
+];
+
+const listItems2 = [
+  "Agua libre de bacterias y contaminantes al instante",
+  "Reducción de costos en agua embotellada",
+  "Mejora en la calidad del agua potable",
+  "Protección para la salud de tu familia",
+];
+---
+
+<section class="relative bg-blue-50 py-12 overflow-hidden">
+  <video
+    src={BackgroundVideo}
+    autoplay
+    loop
+    muted
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover blur-xs opacity-80 pointer-events-none select-none"
+    aria-hidden="true"></video>
+  <div class="relative max-w-4xl mx-auto px-4">
+    <h1 class="text-4xl font-bold text-white mb-4 text-center">
+      {content.title}
+    </h1>
+    <p class="text-lg text-white mb-8 text-center">
+      {content.description}
+    </p>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div
+        class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-extrabold text-blue-800 mb-2">
+            {content.subtitle1}
+          </h2>
+          <ul class="list-disc list-inside text-blue-700 space-y-2 font-light">
+            {listItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <img
+          src={image.src}
+          alt="Purificadora de agua para hogar"
+          class="mt-6 rounded-lg shadow-md"
+        />
+      </div>
+      <div
+        class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-extrabold text-blue-800 mb-2">
+            {content.subtitle2}
+          </h2>
+          <ul class="list-disc list-inside text-blue-700 space-y-2 font-light">
+            {listItems2.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <!-- <img
+            src="/images/familia-agua.jpg"
+            class="mt-6 rounded-lg shadow-md"
+          /> -->
+      </div>
+    </div>
+    <div class="mt-12 text-center">
+      <a
+        href="/#contact"
+        class="inline-block bg-[#ff5757] text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-red-600 transition"
+      >
+        Solicita tu cotización gratis
+      </a>
+    </div>
+  </div>
+</section>

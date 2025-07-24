@@ -3,12 +3,14 @@ import image1 from "../assets/bento1.webp";
 import image2 from "../assets/bento2.webp";
 import image3 from "../assets/bento3.webp";
 import image4 from "../assets/bento4.webp";
+import image5 from "../assets/bento5.webp";
 
 const servicesTitle = {
   title1: "Productos Químicos y Limpiezas químicas",
-  title2: "Diseño de osmosis inversa",
-  title3: "Plan de tratamiento de aguas",
+  title2: "Diseño de Osmosis Inversa",
+  title3: "Plan de Tratamiento de Aguas",
   title4: "Servicios Industriales y Asesoría Técnica",
+  title5: "Purificadoras de Agua para Hogares",
 };
 ---
 
@@ -39,7 +41,7 @@ const servicesTitle = {
         class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col"
       >
         <a
-            href="/products"
+          href="/products"
           class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow"
         >
           <img
@@ -60,7 +62,7 @@ const servicesTitle = {
       </div>
       <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
         <a
-          href=""
+          href="services/diseño-de-osmosis-inversa"
           class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4"
         >
           <img
@@ -80,7 +82,7 @@ const servicesTitle = {
         </a>
         <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
           <a
-            href=""
+            href="services/plan-de-tratamiento-de-aguas"
             class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40"
           >
             <img
@@ -103,7 +105,7 @@ const servicesTitle = {
         class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col"
       >
         <a
-          href=""
+          href="services/servicios-industriales-y-asesoria-tecnica"
           class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow"
         >
           <img
@@ -119,6 +121,29 @@ const servicesTitle = {
             class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
           >
             {servicesTitle.title4}
+          </h3>
+        </a>
+      </div>
+      <div
+        class="col-span-2 sm:col-span-1 md:col-span-5 bg-sky-50 h-auto md:h-full flex flex-col"
+      >
+        <a
+          href="services/purificadoras-de-agua-para-hogares"
+          class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow"
+        >
+          <img
+            src={image5.src}
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"
+          >
+          </div>
+          <h3
+            class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl"
+          >
+            {servicesTitle.title5}
           </h3>
         </a>
       </div>

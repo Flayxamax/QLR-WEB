@@ -1,0 +1,64 @@
+---
+import S4Item1 from "../assets/icons/S4Item1.astro";
+import S4Item2 from "../assets/icons/S4Item2.astro";
+import S4Item3 from "../assets/icons/S4Item3.astro";
+
+const content = {
+  title: "Servicios Industriales y Asesoría Técnica",
+  description:
+    "Soluciones para la industria: asesoría técnica, mantenimiento y cumplimiento normativo. Expertos en el área listos para ayudarte a alcanzar tus objetivos.",
+};
+
+const info = [
+  {
+    image: S4Item3,
+    title: "Asesoría Técnica Personalizada",
+    description:
+      "Diagnóstico y solución de problemas técnicos, implementación de mejoras y capacitación personalizada para tu equipo.",
+  },
+  {
+    image: S4Item1,
+    title: "Mantenimiento Industrial",
+    description:
+      "Servicios de mantenimiento preventivo y correctivo para asegurar la continuidad y eficiencia de tus operaciones.",
+  },
+  {
+    image: S4Item2,
+    title: "Equipos y Refacciones",
+    description:
+      "Suministro de equipos y refacciones de alta calidad para mantener tus operaciones en funcionamiento.",
+  },
+];
+---
+
+<section class="bg-gray-50 py-16">
+  <div class="max-w-5xl mx-auto px-4">
+    <h1 class="text-4xl font-bold text-gray-800 mb-4 text-center">
+      {content.title}
+    </h1>
+    <p class="text-lg text-gray-600 mb-10 text-center">
+      {content.description}
+    </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        info.map((item) => (
+          <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+            <item.image alt={item.title} class="size-24 mb-4" />
+            <h2 class="text-xl text-center font-semibold mb-2 mt-2 text-gray-800">
+              {item.title}
+            </h2>
+            <p class="text-gray-600 text-center">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-12 text-center">
+      <a
+        href="/#contact"
+        class="inline-block bg-[#ff5757] text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-red-600 transition"
+      >
+        Solicita tu asesoría
+      </a>
+    </div>
+  </div>
+</section>
